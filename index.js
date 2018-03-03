@@ -1,12 +1,14 @@
-const Discord = require('discordv8');
-var client = new Discord.Client();
+const Discord = require("discord.js");
+const client = new Discord.Client();
 
-client.loginWithToken(process.env.BOT_TOKEN, output);
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
-function output(error, token) {
-        if (error) {
-                console.log(`There was an error logging in: ${error}`);
-                return;
-        } else
-                console.log(`Logged in. Token: ${token}`);
-}
+client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.reply('Pong!');
+  }
+});
+
+client.login(process.env.BOT_TOKEN);
