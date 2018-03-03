@@ -1,7 +1,7 @@
 const Discord = require('discordv8');
 var client = new Discord.Client();
 
-client.loginWithToken(process.env.TOKEN, output);
+client.loginWithToken(process.env.BOT_TOKEN, output);
 
 function output(error, token) {
         if (error) {
